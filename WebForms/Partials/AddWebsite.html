@@ -1,0 +1,61 @@
+﻿<md-dialog aria-label="Contribute / Add Website" style="width:600px">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Contribute / Add Website</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="../../images/ic_close_white_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="min-width:400px;max-height:810px; ">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="one">
+                    <md-content class="md-padding">
+                        <md-content class="md-no-momentum">
+                            <form name="Websiteform" required>
+                                <md-input-container class="md-icon-float md-block">
+                                    <label>Title</label>
+                                    <input ng-model="Website_Add.Title" placeholder="Enter Title" required type="text">
+                                    <div ng-messages="Websiteform.Website_Add.Title.$error">
+                                        <div ng-message="required">This field is required</div>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container class="md-icon-float md-block">
+                                    <label>Web Url / Address</label>
+                                    <input ng-model="Website_Add.Url" placeholder="Enter Web Url / Address" required type="url">
+                                    <div ng-messages="Websiteform.Website_Add.Url.$error">
+                                        <div ng-message="required">This field is required</div>
+                                    </div>
+                                </md-input-container>
+
+                                <md-input-container class="md-icon-float md-block">
+                                    <label>Tag</label>
+                                    <input ng-model="Website_Add.Tag" placeholder="Enter Tag" required type="text">
+                                    <div ng-messages="Websiteform.Website_Add.Tag.$error">
+                                        <div ng-message="required">This field is required</div>
+                                    </div>
+                                </md-input-container>
+                                <div ng-show="Show_Message" style="color:red">Please Enter All Field To Submit</div>
+                            </form>
+                        </md-content>
+                    </md-content>
+
+                </md-tab>
+
+            </md-tabs>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+
+            <md-button ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button ng-click="Add_Website()" style="margin-right:20px;background-color:#3f51b5;color:white">
+                Add
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

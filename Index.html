@@ -1,0 +1,101 @@
+﻿
+<!DOCTYPE html>
+<html ng-app="app" ng-cloak>
+<head>
+    <title>Toppr Frontend Hiring Challenge</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link href="Plugins/Style/Angular_Material/angular-material.min.css" rel="stylesheet" />
+    <link href="Style/custom.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <script src="https://use.fontawesome.com/811c0c2ca8.js"></script>
+</head>
+<body ng-controller="Main.Ctrl">
+    <div layout="column" layout-fill="layout-fill">
+        <md-content>
+            <md-toolbar ng-show="showSearch">
+                <div class="md-toolbar-tools">
+                    <md-button ng-click="BackToHome()" aria-label="Back">
+                        <md-icon md-svg-icon="images/ic_arrow_back_white_24px.svg"></md-icon>
+                        <md-tooltip md-direction="bottom">
+                            Back
+                        </md-tooltip>
+                    </md-button>
+                    <md-input-container md-theme="input" flex style="margin-top:36px">
+                        <label>&nbsp;</label>
+                        <input ng-model="search" placeholder="Enter Title or Url or Tag  for search">
+                    </md-input-container>
+                    <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+                        <ng-md-icon icon="search"></ng-md-icon>
+                    </md-button>
+
+                </div>
+
+            </md-toolbar>
+            <md-toolbar ng-show="!showSearch">
+                <div class="md-toolbar-tools">
+                    <md-button aria-label="Go Back">
+                        <img src="https://d2m80kvyaqpud3.cloudfront.net/cb/0e48acc45509cf5b8eeced3eedccf2a2a05ad4e494144/v2/images/landing/logo@2x.png" style="height:50px;margin-top:11px" />
+                    </md-button>
+                    <h6>Powered by <strong>Hackerearth</strong></h6>
+                    <span flex></span>
+                    <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+                        <md-icon md-svg-icon="images/ic_search_white_24px.svg"></md-icon>
+                        <md-tooltip md-direction="bottom">
+                            Search
+                        </md-tooltip>
+                    </md-button>
+                    <md-button class="" aria-label="Favorite">
+
+                        <md-icon md-svg-icon="images/ic_account_balance_wallet_white_24px.svg"></md-icon> {{Website_Cout}}
+                        <md-tooltip md-direction="bottom">
+                            Total Website Count
+                        </md-tooltip>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <div layout="row" layout-fill role="main" style="margin-top:59px">
+                <md-list style="width:100%">
+                    <md-subheader class="md-no-sticky">Listing Of Website</md-subheader>
+                    <md-list-item class="md-3-line" ng-repeat="website in websites | filter:search" class="noright">
+                        <img alt="{{ website.title }}" ng-src="{{ website.favicon_image }}" class="md-avatar" />
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{  website.title}}</h3>
+                            <h4><i class="fa fa-tags" aria-hidden="true"></i> {{ website.tag }} |  <a href="#" style="text-decoration:none" ng-click="Website_Like(website.id)"><i class="fa fa-thumbs-up" aria-hidden="true"></i> <span id="{{website.id}}Website_Like_Count"></span> </a> <a class="md-secondary" href="{{ website.url_address }}" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i> {{ website.url_address }} </a> </h4>
+                        </div>
+                        
+                        <md-divider></md-divider>
+                    </md-list-item>
+                </md-list>
+
+                <md-button class="md-fab md-fab-bottom-right" style="padding-top:8px;font-weight:600;font-size:25px;" aria-label="Add" ng-click="AddWebsite($event)">
+                    <i class="material-icons md-48" style="color:white !important">add</i>
+                    <md-tooltip md-direction="top">
+                        Add Website
+                    </md-tooltip>
+                </md-button>
+
+            </div>
+            <div flex="flex"></div>
+        </md-content>
+    </div>
+
+
+
+
+    <script src="Plugins/Script/Jquery/jquery.js"></script>
+    <script src="Plugins/Script/Angular/angular.min.js"></script>
+    <script src="Plugins/Script/Angular/angular-animate.min.js"></script>
+    <script src="Plugins/Script/Angular/angular-aria.min.js"></script>
+    <script src="Plugins/Script/Angular/angular-material.min.js"></script>
+    <script src="Plugins/Script/Angular/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.8/angular-messages.js"></script>
+    <script src="Script/Service/SocialJs.js"></script>
+
+    <!-- Custom Js -->
+    <script src="Script/Module/app.js"></script>
+    <script src="Script/Controller/Main.Ctrl.js"></script>
+</body>
+</html>

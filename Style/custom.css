@@ -1,0 +1,67 @@
+﻿md-content.md-default-theme {
+  background-color: #eee;
+}
+
+md-card {
+  background-color: #fff;
+}
+md-card h2:first-of-type {
+  margin-top: 0;
+}
+
+md-toolbar .md-button.md-default-theme {
+  border-radius: 99%;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+.md-toolbar-tools-bottom {
+  font-size: small;
+}
+.md-toolbar-tools-bottom :last-child {
+  opacity: 0.8;
+}
+
+md-toolbar:not(.md-hue-1),
+.md-fab {
+  fill: #fff;
+}
+
+.user-avatar {
+  border-radius: 99%;
+}
+.md-button.md-fab.md-fab-bottom-right {
+top: auto;
+right: 20px;
+bottom: 20px;
+left: auto;
+position: fixed;
+}
+md-toolbar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: fixed;
+  z-index: 2;
+  font-size: 1.3em;
+  width: 100%;
+}
+a{
+    color:#0bbff2 !important;
+}
+i{
+    color:#007acc !important;
+}
+.md-button.md-default-theme.md-fab, .md-button.md-fab {
+    background-color: #3f51b5;
+    color: rgb(255,255,255);
+}
+.md-button.md-default-theme.md-fab, .md-button.md-fab:hover {
+    background-color: #3f51b5 !important;
+    color: rgb(255,255,255);
+}
